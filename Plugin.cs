@@ -15,7 +15,7 @@ namespace PhotomodeMultiview
     {
         public const string pluginGuid = "com.metalted.zeepkist.photodrone";
         public const string pluginName = "PhotoDrone";
-        public const string pluginVersion = "1.8.1";
+        public const string pluginVersion = "1.8.2";
 
         public static Plugin Instance;
 

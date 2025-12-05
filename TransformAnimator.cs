@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System.Globalization;
+using System;
 
 namespace PhotomodeMultiview
 {
@@ -290,8 +292,10 @@ namespace PhotomodeMultiview
                     var parts = line.Split(' ');
                     var cmd = parts[0].ToLower();
                     var args = parts.Length > 1
-                        ? parts.Skip(1).Select(s => float.TryParse(s, out var v) ? v : 0f).ToArray()
-                        : new float[0];
+                    ? parts.Skip(1)
+                        .Select(s => float.TryParse(s, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out var v) ? v : 0f)
+                        .ToArray()
+                    : Array.Empty<float>();
 
                     switch (cmd)
                     {
